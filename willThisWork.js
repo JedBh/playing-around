@@ -11,10 +11,12 @@ var user = {
 
 var element = React.createElement(
   "h1",
-  null,
+  { className: "big-header" },
   "Hello ",
   fullName(user)
 );
+
+console.log(element.props);
 
 var domContainer = document.querySelector("#main_div");
 ReactDOM.render(element, domContainer);
