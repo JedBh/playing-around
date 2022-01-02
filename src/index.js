@@ -88,13 +88,21 @@ const root = document.querySelector("#root");
 class Clock extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { date: new Date() };
+    this.state = {
+      date: new Date(),
+      increment: 1,
+    };
   }
 
   componentDidMount() {
     this.timerID = setInterval(() => {
       this.tick();
     }, 1000);
+    this.incrementID = document
+      .querySelector("button")
+      .addEventListener("click", () => {
+        this.increment();
+      });
   }
 
   componentWillUnmount() {
@@ -107,16 +115,23 @@ class Clock extends React.Component {
     });
   }
 
+  increment() {
+    this.setState((state, props) => ({
+      increment: state.increment + Number(props.add),
+    }));
+  }
+
   render() {
     return (
       <div>
         <h1>Hello World</h1>
         <h2>It is {this.state.date.toLocaleTimeString()}</h2>
+        <button>Increment {this.state.increment}</button>
       </div>
     );
   }
 }
 
-ReactDOM.render(<Clock />, root);
+ReactDOM.render(<Clock add="7" />, root);
 
 // ReactDOM.render(element, root);
