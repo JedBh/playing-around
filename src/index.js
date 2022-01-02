@@ -90,7 +90,6 @@ class Clock extends React.Component {
     super(props);
     this.state = {
       date: new Date(),
-      increment: 1,
     };
   }
 
@@ -98,11 +97,6 @@ class Clock extends React.Component {
     this.timerID = setInterval(() => {
       this.tick();
     }, 1000);
-    this.incrementID = document
-      .querySelector("button")
-      .addEventListener("click", () => {
-        this.increment();
-      });
   }
 
   componentWillUnmount() {
@@ -115,18 +109,11 @@ class Clock extends React.Component {
     });
   }
 
-  increment() {
-    this.setState((state, props) => ({
-      increment: state.increment + props.add,
-    }));
-  }
-
   render() {
     return (
       <div>
         <h1>Hello World</h1>
         <h2>It is {this.state.date.toLocaleTimeString()}</h2>
-        <button>Increment {this.state.increment}</button>
       </div>
     );
   }
