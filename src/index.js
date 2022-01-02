@@ -117,7 +117,7 @@ class Clock extends React.Component {
 
   increment() {
     this.setState((state, props) => ({
-      increment: state.increment + Number(props.add),
+      increment: state.increment + props.add,
     }));
   }
 
@@ -132,6 +132,5 @@ class Clock extends React.Component {
   }
 }
 
-ReactDOM.render(<Clock add="7" />, root);
-
+ReactDOM.render(<Clock />, root);
 // ReactDOM.render(element, root);
