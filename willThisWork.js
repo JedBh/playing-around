@@ -1,22 +1,15 @@
 "use strict";
 
-var fullName = function fullName(user) {
-  return user.firstName.concat(" ", user.lastName);
-};
+// dom elements
 
-var user = {
-  firstName: "Josh",
-  lastName: "Perez"
-};
+var headerContainer = document.querySelector("#main_div");
 
-var element = React.createElement(
-  "h1",
-  { className: "big-header" },
-  "Hello ",
-  fullName(user)
-);
-
-console.log(element.props);
-
-var domContainer = document.querySelector("#main_div");
-ReactDOM.render(element, domContainer);
+function Welcome(props) {
+  return React.createElement(
+    "h1",
+    null,
+    "Hello, ",
+    props.name
+  );
+}
+ReactDOM.render(Welcome, headerContainer);

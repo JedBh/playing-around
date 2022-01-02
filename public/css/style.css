@@ -1,12 +1,71 @@
 @import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
 
 * {
-  font-family: "Press Start 2P", cursive;
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+body {
+  height: 100vh;
+}
+
+.container {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: url("https://res.cloudinary.com/ddinaig4n/image/upload/v1638723177/sar-el_links/Copy_of_NAS_0596_yk7oix.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: 1;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(24, 50, 199, 0.418);
+  z-index: 2;
+}
+
+.navbar {
+  width: 50%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.navbar li {
+  list-style-type: none;
+  margin: 0;
+  padding: 12px 20px;
+  z-index: 3;
+}
+
+.navbar li a {
+  text-decoration: none;
+  color: #f3f3f3;
+  font-size: 24px;
+}
+
+.navbar li a:hover {
+  color: #fff;
 }
 
 .big-header {
-  font-size: 60px;
-}
-body {
-  background: pink;
+  color: #f3f3f3;
+  position: absolute;
+  top: 30vh;
+  left: 24vw;
+  width: 50%;
+  text-align: center;
+  font-size: 24px;
+  padding: 64px 16px;
+  z-index: 3;
 }
