@@ -8,9 +8,17 @@ class Toggle extends React.Component {
     super(props);
     this.state = {
       isToggleOn: true,
+      increment: 0,
     };
     // this binding is necessary to make `this` work in the callback
     this.handleClick = this.handleClick.bind(this);
+    this.increment = this.increment.bind(this);
+  }
+
+  increment() {
+    this.setState((state) => ({
+      increment: state.increment + 1,
+    }));
   }
 
   handleClick() {
@@ -21,9 +29,12 @@ class Toggle extends React.Component {
 
   render() {
     return (
-      <button onClick={this.handleClick}>
-        {this.state.isToggleOn ? "ON" : "OFF"}
-      </button>
+      <div>
+        <button onClick={this.handleClick}>
+          {this.state.isToggleOn ? "ON" : "OFF"}
+        </button>
+        <button onClick={this.increment}>{this.state.increment}</button>
+      </div>
     );
   }
 }
