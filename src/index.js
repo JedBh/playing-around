@@ -3,34 +3,23 @@ import ReactDOM from "react-dom";
 
 const root = document.querySelector("#root");
 
-class Element extends React.Component {
+class NumberList extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      header: "Hello World",
-      text: "Today we are learning React lists and keys!",
-      time: new Date().toLocaleTimeString(),
-    };
-    this.handleClick = this.handleClick.bind(this);
+    this.numbers = props.numbers;
+    this.listItems = this.listItems.bind(this);
   }
 
-  handleClick() {
-    this.setState({
-      time: new Date().toLocaleTimeString(),
+  listItems() {
+    return this.numbers.map((number) => {
+      return <li key={number.toString()}>{number}</li>;
     });
   }
 
   render() {
-    return (
-      <div>
-        <h1>{this.state.time}</h1>
-        <button onClick={this.handleClick}>Refresh Clock</button>
-      </div>
-    );
+    return <ul>{this.listItems()}</ul>;
   }
 }
 
 const numbers = [1, 2, 3, 4, 5];
-const doubled = numbers.map((el) => <li>{el * 2}</li>);
-
-ReactDOM.render(<ul>{doubled}</ul>, root);
+ReactDOM.render(<NumberList numbers={numbers} />, root);
