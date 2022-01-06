@@ -3,10 +3,47 @@ import ReactDOM from "react-dom";
 
 const root = document.querySelector("#root");
 
-class NameForm extends React.Component {
+// class NameForm extends React.Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = { value: "" };
+
+//     this.handleChange = this.handleChange.bind(this);
+//     this.handleSubmit = this.handleSubmit.bind(this);
+//   }
+
+//   handleChange(event) {
+//     this.setState({ value: event.target.value });
+//   }
+
+//   handleSubmit(event) {
+//     alert("Form was Submitted! With the name: " + this.state.value);
+//     event.preventDefault();
+//   }
+
+//   render() {
+//     return (
+//       <div>
+//         <form onSubmit={this.handleSubmit}>
+//           <label for="name">Name:</label>
+//           <input
+//             type="text"
+//             value={this.state.value}
+//             onChange={this.handleChange}
+//           ></input>
+//           <input type="submit" value="submit" />
+//         </form>
+//       </div>
+//     );
+//   }
+// }
+
+class EssayForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { value: "" };
+    this.state = {
+      value: "Please write an essay about your favourite school lesson...",
+    };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -17,7 +54,7 @@ class NameForm extends React.Component {
   }
 
   handleSubmit(event) {
-    alert("Form was Submitted! With the name: " + this.state.value);
+    alert("Text Area Submitted " + this.state.value);
     event.preventDefault();
   }
 
@@ -25,12 +62,11 @@ class NameForm extends React.Component {
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
-          <label for="name">Name:</label>
-          <input
-            type="text"
-            value={this.state.value}
+          <label>Text Area:</label>
+          <textarea
             onChange={this.handleChange}
-          ></input>
+            value={this.state.value}
+          ></textarea>
           <input type="submit" value="submit" />
         </form>
       </div>
@@ -38,4 +74,4 @@ class NameForm extends React.Component {
   }
 }
 
-ReactDOM.render(<NameForm />, root);
+ReactDOM.render(<EssayForm />, root);
