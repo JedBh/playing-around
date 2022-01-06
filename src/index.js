@@ -38,35 +38,70 @@ const root = document.querySelector("#root");
 //   }
 // }
 
-class EssayForm extends React.Component {
+// class EssayForm extends React.Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = {
+//       value: "Please write an essay about your favourite school lesson...",
+//     };
+
+//     this.handleChange = this.handleChange.bind(this);
+//     this.handleSubmit = this.handleSubmit.bind(this);
+//   }
+
+//   handleChange(event) {
+//     this.setState({ value: event.target.value });
+//   }
+
+//   handleSubmit(event) {
+//     alert("Text Area Submitted " + this.state.value);
+//     event.preventDefault();
+//   }
+
+//   render() {
+//     return (
+//       <div>
+//         <form onSubmit={this.handleSubmit}>
+//           <label>Text Area:</label>
+//           <textarea
+//             onChange={this.handleChange}
+//             value={this.state.value}
+//           ></textarea>
+//           <input type="submit" value="submit" />
+//         </form>
+//       </div>
+//     );
+//   }
+// }
+
+class FlavorForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      value: "Please write an essay about your favourite school lesson...",
-    };
+    this.state = { value: "coconut" };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleChange(event) {
-    this.setState({ value: event.target.value });
+  handleChange(e) {
+    this.setState({ value: e.target.value });
   }
 
-  handleSubmit(event) {
-    alert("Text Area Submitted " + this.state.value);
-    event.preventDefault();
+  handleSubmit(e) {
+    alert("Your favourite falvor is - " + this.state.value);
+    e.preventDefault();
   }
 
   render() {
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
-          <label>Text Area:</label>
-          <textarea
-            onChange={this.handleChange}
-            value={this.state.value}
-          ></textarea>
+          <select value={this.state.value} onChange={this.handleChange}>
+            <option value="grapefruit">Grapefruit</option>
+            <option value="lime">Lime</option>
+            <option value="coconut">Coconut</option>
+            <option value="mango">Mango</option>
+          </select>
           <input type="submit" value="submit" />
         </form>
       </div>
@@ -74,4 +109,4 @@ class EssayForm extends React.Component {
   }
 }
 
-ReactDOM.render(<EssayForm />, root);
+ReactDOM.render(<FlavorForm />, root);
